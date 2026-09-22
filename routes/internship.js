@@ -438,7 +438,9 @@ router.get("/:id", async (req, res) => {
         i.field_tags,
         c.name AS company_name,
         c.website AS company_website,
-        c.description AS company_description
+        c.description AS company_description,
+        c.contact_email AS company_contact_email,
+        c.application_url AS company_application_url
       FROM internships i
       JOIN companies c
         ON i.company_id = c.id
@@ -462,7 +464,9 @@ router.get("/:id", async (req, res) => {
       company: {
         name: row.company_name || "",
         website: row.company_website || "",
-        description: row.company_description || ""
+        description: row.company_description || "",
+        contact_email: row.company_contact_email || "",
+        application_url: row.company_application_url || ""
       }
     });
 
