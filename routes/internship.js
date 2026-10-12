@@ -41,7 +41,7 @@ router.get("/search", async (req, res) => {
 
     let locationCondition = "";
     if (location) {
-      values.push(`%${location}%`);
+        values.push(`${location}%`);
       locationCondition = `AND i.location ILIKE $${values.length}`;
     }
 
